@@ -1,4 +1,3 @@
-// hello.cc
 #include <node.h>
 
 #pragma comment(lib, "netapi32.lib")
@@ -26,8 +25,7 @@ using std::string;
 using v8::Value;
 
 void Method(const FunctionCallbackInfo<Value>& args) {
-    //SetConsoleCP(65001);
-    //SetConsoleOutputCP(65001);
+
     Isolate* isolate = args.GetIsolate();
 
           string username;
@@ -42,27 +40,20 @@ void Method(const FunctionCallbackInfo<Value>& args) {
             v8::String::Utf8Value str(isolate, args[0]);
             std::string cppStr(*str);
 
-          string arr[100];
           int count=0;
           for (unsigned i = 0; i < entries; i++) {
 
                 username = string(CW2A(buffer[i].usri0_name, CP_UTF8));
 
-                   cout << cppStr << " - ";
-
-                   cout << username <<"\n";
-
                 if (username==cppStr)
                 {
-                    //cout<<"User " << cppStr<< " is find! :)"<<"\n";
                     args.GetReturnValue().Set(Number::New(isolate, 1));
                     count++;
                 }
           }
 
           if(count==0){
-                   //cout<<"User " << cppStr<< " is not find :("<<"\n";
-                   args.GetReturnValue().Set(Number::New(isolate, 0));
+               args.GetReturnValue().Set(Number::New(isolate, 0));
           }
 
 }
