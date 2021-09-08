@@ -1,0 +1,31 @@
+{
+  "name": "bpo",
+  "version": "1.0.0",
+  "description": "Тестовое задание.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "install": "node-gyp rebuild & start chrome http://localhost:3000 & node.exe server.js ",
+    "st":  "npm config set msvs_version 2019"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PyatkinKonstantin/bpo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/PyatkinKonstantin/bpo/issues"
+  },
+  "homepage": "https://github.com/PyatkinKonstantin/bpo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "node-gyp": "^8.2.0"
+  }
+}
